@@ -1,5 +1,4 @@
 import { AppService } from './app.service'
-import { CatService } from './cat.service'
+import { UserService } from './user.service'
 
-export { AppService }
-export { CatService }
+export { AppService, UserService }

@@ -1,0 +1,10 @@
+{
+  "type": "mssql",
+  "host": "localhost",
+  "username": "sa",
+  "port": 1433,
+  "password": "reallyStrongPwd123",
+  "database": "master",
+  "entities": ["src/**/**.entity{.ts,.js}"],
+  "synchronize": true
+}
