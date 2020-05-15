@@ -1,4 +1,12 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm'
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  CreateDateColumn,
+  UpdateDateColumn,
+  DeleteDateColumn
+} from 'typeorm'
 import { UserStatus } from '~/constant'
 
 @Entity('user')
@@ -22,11 +30,26 @@ export class UserEntity {
   displayname: string
 
   @Column({
-    type: 'enum',
-    enum: UserStatus,
-    default: UserStatus.ACTIVE,
-    name: 'status',
-    lenght: 10,
+    type: 'varchar',
+    default: UserStatus.ACTIVE
   })
-  status: boolean
+  status: string
+
+  @CreateDateColumn({
+    type: 'timestamp with local time zone',
+    name: 'created_date'
+  })
+  createdDate: Date
+
+  @UpdateDateColumn({
+    type: 'timestamp with local time zone',
+    name: 'updated_date'
+  })
+  updatedDate: Date
+
+  @DeleteDateColumn({
+    type: 'timestamp with local time zone',
+    name: 'deleted_date'
+  })
+  deletedDate: Date
 }
